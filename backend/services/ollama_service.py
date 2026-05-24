@@ -3,13 +3,14 @@ Ollama Service — Local LLM inference with streaming support
 """
 
 import logging
+import os
 import httpx
 import json
 from typing import AsyncGenerator
 
 logger = logging.getLogger(__name__)
 
-OLLAMA_BASE_URL = "http://localhost:11434"
+OLLAMA_BASE_URL = os.getenv("OLLAMA_HOST", "http://localhost:11434").rstrip("/")
 TIMEOUT = 180.0
 
 SYSTEM_PROMPTS = {
