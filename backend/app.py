@@ -33,12 +33,12 @@ FRONTEND_DIST = Path(os.getenv("FRONTEND_DIST", "/app/frontend/dist"))
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    logger.info("🧠 Starting LocalMind v2.0...")
+    logger.info("Starting LocalMind v2.0...")
     os.makedirs("./data/uploads", exist_ok=True)
     os.makedirs("./data/chromadb", exist_ok=True)
     os.makedirs("./data/exports", exist_ok=True)
     init_db()
-    logger.info("✅ LocalMind v2.0 ready!")
+    logger.info("LocalMind v2.0 ready!")
     yield
     logger.info("👋 Shutting down...")
 
