@@ -89,7 +89,7 @@ async def chat_stream(req: ChatRequest):
             language=req.language,
             temperature=req.temperature,
         ):
-            if first_token_time == None:
+            if first_token_time is None:
                 first_token_time = time.perf_counter()
             full_reply.append(token)
             token_count += 1
